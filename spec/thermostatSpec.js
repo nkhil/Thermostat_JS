@@ -13,6 +13,10 @@ describe('Thermostat', function(){
     expect(thermostat._temp).toEqual(20);
   });
 
+  it('has a minimum temperature of 10', function(){
+    expect(thermostat._minTemp).toEqual(10);
+  })
+
   describe('.up', function(){
     it('can increase temperature', function(){
       thermostat.up();
