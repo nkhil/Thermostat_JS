@@ -35,9 +35,9 @@ Thermostat.prototype.reset = function(){
 
 Thermostat.prototype.currentUsage = function(){
   // this._temp < 18 ? 'low-usage' : (this._temp < 25 ? 'medium-usage' : 'high-usage');
-  if(this._temp >= 25){
+  if(this._temp >= this.MAX_LIMIT_PSM_ON){
     return 'high-usage';
-  } else if(this._temp < 25 && this._temp >= 18){
+  } else if(this._temp < this.MAX_LIMIT_PSM_ON && this._temp >= this.MEDIUM_ENERGY_USAGE_LIMIT){
     return 'medium-usage';
   } else {
     return 'low-usage';

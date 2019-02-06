@@ -61,12 +61,12 @@ describe('Thermostat', function(){
     });
 
     it('gives you a current usage report', function(){
-      thermostat._temp = 17;
+      thermostat._temp = 15;
       expect(thermostat.currentUsage()).toEqual('low-usage');
     });
 
     it('gives you a current usage report', function(){
-      thermostat._temp = 26;
+      thermostat._temp = 29;
       expect(thermostat.currentUsage()).toEqual('high-usage');
     });
   });
