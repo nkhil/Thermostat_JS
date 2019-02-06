@@ -23,4 +23,16 @@ Thermostat.prototype.reset = function(){
   this._temp = 20;
 }
 
+Thermostat.prototype.currentUsage = function(){
+  // this._temp < 18 ? 'low-usage' : (this._temp < 25 ? 'medium-usage' : 'high-usage');
+  if(this._temp >= 25){
+    return 'high-usage';
+  } else if(this._temp < 25 && this._temp >= 18){
+    return 'medium-usage';
+  } else {
+    return 'low-usage';
+  }
+
+}
+
 module.exports = Thermostat;

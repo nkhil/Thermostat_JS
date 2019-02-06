@@ -40,14 +40,31 @@ describe('Thermostat', function(){
       thermostat._powerSavingMode = false;
       expect(thermostat.maximumTemperature()).toEqual(32);
     })
-  })
+  });
 
   describe('.reset', function(){
     it('can reset temperature to 20', function(){
       thermostat.reset();
       expect(thermostat._temp).toEqual(20);
     })
-  })
+  });
+
+  describe('.currentUsage', function(){
+    it('gives you a current usage report', function(){
+      thermostat._temp = 24;
+      expect(thermostat.currentUsage()).toEqual('medium-usage');
+    });
+
+    it('gives you a current usage report', function(){
+      thermostat._temp = 17;
+      expect(thermostat.currentUsage()).toEqual('low-usage');
+    });
+
+    it('gives you a current usage report', function(){
+      thermostat._temp = 26;
+      expect(thermostat.currentUsage()).toEqual('high-usage');
+    });
+  });
 
 
 });
