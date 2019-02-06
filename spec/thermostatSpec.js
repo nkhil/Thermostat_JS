@@ -1,3 +1,5 @@
+'use strict';
+
 var Thermostat = require('../src/thermostat');
 
 describe('Thermostat', function(){
@@ -10,7 +12,7 @@ describe('Thermostat', function(){
 
 
   it('starts with temperature at 20', function(){
-    expect(thermostat._temp).toEqual(20);
+    expect(thermostat.getCurrentTemp()).toEqual(20);
   });
 
   it('has a minimum temperature of 10', function(){
