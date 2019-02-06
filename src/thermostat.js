@@ -4,6 +4,9 @@ function Thermostat(temp, minTemp){
   this._temp = temp || 20;
   this._minTemp = minTemp || 10;
   this._powerSavingMode = true;
+  this.MEDIUM_ENERGY_USAGE_LIMIT = 18;
+  this.MAX_LIMIT_PSM_ON = 25;
+  this.MAX_LIMIT_PSM_OFF = 32;
 }
 
 Thermostat.prototype.getCurrentTemp = function(){
@@ -17,11 +20,13 @@ Thermostat.prototype.up = function(){
 Thermostat.prototype.down = function(){
   this._temp -= 1;
 }
-
-Thermostat.prototype.maximumTemperature = function(){
+// refactor this to return true based on instance variables
+Thermostat.prototype.isMaximumTemperature = function(){
   if(this._powerSavingMode === true){
-    return 25
-  } else { return 32 }
+    return this._temp === this.MAX_LIMIT_PSM_ON;
+  } else {
+    return this._temp === this.MAX_LIMIT_PSM_OFF;
+  }
 }
 
 Thermostat.prototype.reset = function(){
