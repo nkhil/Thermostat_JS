@@ -19,4 +19,8 @@ Thermostat.prototype.maximumTemperature = function(){
   } else { return 32 }
 }
 
+Thermostat.prototype.reset = function(){
+  this._temp = 20;
+}
+
 module.exports = Thermostat;
